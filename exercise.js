@@ -95,3 +95,38 @@ function longest(s1, s2) {
     return result;
   }
   console.log(longest('xyaabbbccccdefww', 'xxxxyyyyabklmopq')); // "abcdefklmopqwxy"
+
+////
+
+
+  function countBs(str) {
+    const wordArray = str.split('B');
+    const count = str.split
+    for (let i = 0; i < str.length; i++) {
+        const element = str[i];
+        if (str.includes('B')) {
+           str.split('B').length - 1;
+        } else {
+            return 0;
+        } 
+        return element;
+    }
+}
+
+console.log(countBs("BBC"));
+// → 2
+// console.log(countChar("kakkerlak", "k"));
+// → 4
+
+function isIsogram(sWord)
+ {
+  for (i = 0; i < sWord.length; i++){
+    if (sWord.substring(i + 1).includes(sWord.charAt(i))){
+        return false;
+    }
+      
+  }
+
+  return true;
+ }
+ console.log(isIsogram('ciao'));
