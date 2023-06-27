@@ -10,8 +10,8 @@ function booleanToString(b) {
     //return newElement;
 }
 
-console.log(booleanToString(true) === "true");
-console.log(booleanToString(false) === "false");
+console.log('booleanToString', booleanToString(true) === "true");
+console.log('booleanToString', booleanToString(false) === "false");
 
 function basicOp(operation, value1, value2) {
 
@@ -30,103 +30,143 @@ function basicOp(operation, value1, value2) {
 
 }
 
-console.log(basicOp("+", 4, 7) === 11);
-console.log(basicOp("-", 15, 18) === -3);
-console.log(basicOp("*", 5, 5) === 25);
-console.log(basicOp("/", 49, 7) === 7);
-
-// 1)Your task is to write a function that takes a string and return a new string with all vowels removed.
-// For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
-
-function removeVowels(str) {
-    const vowels = ['a', 'e', 'i', 'o', 'u'];
-    let result = '';
-    for (let i = 0; i < str.length; i++) {
-      if (vowels.indexOf(str[i].toLowerCase()) == -1) {
-        result += str[i];
-      }
-    }
-    return result;
-  }
-  
-  console.log(removeVowels('This website is for losers LOL!'));
-
-// 2)Have to return the highest and lowest number of string
-// highAndLow("1 2 3 4 5");  // return "5 1"
-// highAndLow("1 2 -3 4 5"); // return "5 -3"
-// highAndLow("1 9 3 4 -5"); // return "9 -5"
-
-function highAndLow(numbers){
-    const num = numbers.split(" ");
-    let maxNum = Number(num[0]);
-    let minNum = Number(num[0]);
-    for (let i = 1; i < num.length; i++) {
-      if (Number(num[i]) > maxNum) {
-        maxNum = Number(num[i]);
-      }
-      if (Number(num[i]) < minNum) {
-        minNum = Number(num[i]);
-      }
-    }
-    return maxNum + ' ' + minNum;
-  }
-  
-  const numbers = "1 2 -3 4 5";
-  console.log(highAndLow(numbers)); // "5 -3" 
-
-// 3)Take 2 strings s1 and s2 including only letters from a to z. Return a new sorted string, 
-// the longest possible, containing distinct letters - each taken only once - coming from s1 or s2.
-// a = "xyaabbbccccdefww"   b = "xxxxyyyyabklmopq"
-
-function longest(s1, s2) {
-    let combined = s1 + s2;
-    let unique = '';
-    for (let i = 0; i < combined.length; i++) {
-      if (unique.indexOf(combined[i]) === -1) {
-        unique += combined[i];
-      }
-    }
-    let result = '';
-    for (let i = 0; i < unique.length; i++) {
-      if (result.indexOf(unique[i]) === -1) {
-        result += unique[i];
-      }
-    }
-    return result;
-  }
-  console.log(longest('xyaabbbccccdefww', 'xxxxyyyyabklmopq')); // "abcdefklmopqwxy"
-
-////
+console.log('basicOp', basicOp("+", 4, 7) === 11);
+console.log('basicOp', basicOp("-", 15, 18) === -3);
+console.log('basicOp', basicOp("*", 5, 5) === 25);
+console.log('basicOp', basicOp("/", 49, 7) === 7);
 
 
-  function countBs(str) {
-    const wordArray = str.split('B');
-    const count = str.split
-    for (let i = 0; i < str.length; i++) {
-        const element = str[i];
-        if (str.includes('B')) {
-           str.split('B').length - 1;
-        } else {
-            return 0;
-        } 
-        return element;
+
+function removeAllSpaces(str){
+    // const nospace = str.replace(/ /g, '');
+    // return nospace;
+    const wordArray = str.split(' ')
+    const nospace = wordArray.join('');
+    return nospace;
+}
+
+console.log('removeAllSpaces',removeAllSpaces("pippo") === "pippo");
+console.log('removeAllSpaces',removeAllSpaces("   ") === "");
+console.log('removeAllSpaces',removeAllSpaces("le mutande di mia nonna") === "lemutandedimianonna");
+
+
+function calculateBMI(weight, height){
+    const proportion = weight/(height**2);
+    if (proportion <= 18.5) {
+        return 'Underweight';
+    } else if (proportion > 18.5 && proportion <= 25) {
+        return 'Normal';
+    } else if (proportion > 25 && proportion <= 30) {
+        return 'Overweight'
+    } else {
+        return 'Obese';
     }
 }
 
-console.log(countBs("BBC"));
-// → 2
-// console.log(countChar("kakkerlak", "k"));
-// → 4
 
-function isIsogram(sWord)
- {
-  for (i = 0; i < sWord.length; i++){
-    if (sWord.substring(i + 1).includes(sWord.charAt(i))){
-        return false;
+console.log('calculateBMI', calculateBMI(170, 1.60)==='Obese')
+console.log('calculateBMI', calculateBMI(57, 1.66)==='Normal')
+
+
+
+function countBs(str){
+    let accumulator = 0;
+    for (let i = 0; i < str.length; i++) {
+        const char = str[i];
+        if (char === 'B') {
+            accumulator++;
+        }
     }
-      
-  }
+    return accumulator;
+}
 
-  return true;
- }
- console.log(isIsogram('ciao'));
+console.log('countBs', countBs('Babboleo') === 1)
+console.log('countBs', countBs('BABBOLEO') === 3)
+
+
+function countChar(str, selectedChar){
+    let accumulator = 0;
+    for (let i = 0; i < str.length; i++) {
+        const char = str[i];
+        if (char === selectedChar) {
+            accumulator++;
+        }
+    }
+    return accumulator;
+}
+
+console.log('countChar', countChar('Babboleo', 'o') === 2)
+console.log('countChar', countChar('BABBOLEO', 'l') === 0)
+
+
+function countChar2(str, selectedChar){
+    //'la casa rosa'
+    //['la', 'casa', 'rosa']
+    //length = 3
+    //count = 2
+    const wordArray = str.split(selectedChar);
+    const count = wordArray.length - 1;
+    return count;
+}
+
+
+console.log('countChar2', countChar2('Babboleo', 'o') === 2)
+console.log('countChar2', countChar2('BABBOLEO', 'l') === 0)
+
+
+
+
+function isogram(word){
+
+    for (let i = 0; i < word.length; i++) {
+        
+        for (let j = i + 1; j < word.length; j++){
+          
+            if (word[i] === word[j]) {
+                return false
+            }
+
+
+        }
+        
+    }
+    return true;
+
+}
+
+console.log('isogram', isogram('cacca') === false);
+console.log('isogram', isogram('cane') === true);
+
+function isogram2(word){
+
+    for (let i = 0; i < word.length; i++) {
+        if (word.substring(i+1).includes(word[i])) {
+            return false;
+        }
+    }
+    return true;
+
+}
+
+
+console.log('isogram2', isogram2('cacca') === false);
+console.log('isogram2', isogram2('cane') === true);
+
+
+function isogram3(word){
+
+    for (let i = 0; i < word.length; i++) {
+        const charToCount = word[i];
+        const wordArray = word.split(charToCount);
+        const count = wordArray.length - 1;
+        if(count > 1){
+            return false;
+        }
+    }
+    return true;
+
+}
+
+
+console.log('isogram3', isogram3('cacca') === false);
+console.log('isogram3', isogram3('cane') === true);
