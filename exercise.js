@@ -170,3 +170,16 @@ function isogram3(word){
 
 console.log('isogram3', isogram3('cacca') === false);
 console.log('isogram3', isogram3('cane') === true);
+
+
+
+const accum = (s) => [...s].reduce((a, c, i, o) => a + c.toUpperCase() 
+                                                     + c.toLowerCase().repeat(i) 
+                                                     + (i !== o.length - 1 ? '-' : '') , '');
+
+console.log(accum('abc'))
+
+
+//'' + 'A' + '' + '-' => 'A-'
+//'A-' + 'B' + 'b' + '-' => 'A-Bb-'
+//'A-Bb-' + 'C' + 'cc' + '' => 'A-Bb-Ccc'
