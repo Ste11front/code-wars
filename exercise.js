@@ -183,3 +183,18 @@ console.log(accum('abc'))
 //'' + 'A' + '' + '-' => 'A-'
 //'A-' + 'B' + 'b' + '-' => 'A-Bb-'
 //'A-Bb-' + 'C' + 'cc' + '' => 'A-Bb-Ccc'
+
+console.log(3 === 3);
+
+let pippo = 5;
+let pluto = 5;
+console.log(pippo === pluto);
+
+let qui = 'paperino';
+let quo = 'paperino';
+console.log(qui === quo);
+
+const student1 = {name: 'manuela', yob: 1988}
+const student2 = {name: 'manuela', yob: 1988}
+
+console.log(student1 === student2);
